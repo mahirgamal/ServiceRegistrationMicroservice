@@ -13,6 +13,34 @@ The `ServiceRegistrationMicroservice` project is a Java-based microservice desig
 - **Message Queuing**: Integrates with RabbitMQ for handling asynchronous message processing.
 - **REST API**: Exposes RESTful endpoints for interacting with the service registration and user management features.
 
+## Architecture
+
+The application is structured using a modular architecture, aligning with Domain-Driven Design (DDD) principles to ensure scalability, maintainability, and alignment with business logic. The main components include:
+
+### 1. Function Layer (`com.function`)
+
+- **Purpose**: Acts as the Application Layer in DDD. This layer contains the entry points to the application, handling incoming requests, orchestrating service registration, and managing user operations.
+
+- **Components**:
+  - **`Function.java`**: Contains core functions that serve as the entry point for processing service-related requests. It manages the workflow and interactions between different components.
+  - **`User.java`**: Manages user-related operations such as creating and managing user accounts, handling authentication, and other user-specific functionalities.
+
+### 2. Domain Layer (`com.domain`)
+
+- **Purpose**: The heart of the application, containing business logic and rules. It is responsible for handling core business concerns such as registering services and managing user data.
+
+- **Components**:
+  - **`Registration.java`**: Represents the domain service responsible for service registration logic. It encapsulates the rules and workflows required to validate and register services.
+
+### 3. Infrastructure Layer (`src/main/resources`)
+
+- **Purpose**: Supports the infrastructure needs of the application, handling configurations, database connections, and integrations with external systems like message queues.
+
+- **Components**:
+  - **`mysqlconfig.json`**: Configuration for connecting to the MySQL database, managing service and user data persistence.
+  - **`rabbitmqconfig.json`**: Configuration for RabbitMQ, used to handle asynchronous messaging and queue management.
+
+
 ## Project Structure
 
 ```
